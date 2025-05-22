@@ -1,0 +1,59 @@
+generator client {
+  provider = "prisma-client-js"
+  // output line needs to be added soon because of current behaviour becoming deprecated
+}
+
+datasource db {
+  // provider = "sqlite"
+  // url      = env("DATABASE_URL")
+
+  // when ready to push to production, swtich provider
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Conversation {
+  id          String    @id @default(cuid())
+  userId      String
+  title       String?
+  createdAt   DateTime   @default(now())
+  updatedAt   DateTime   @updatedAt
+  messages    Message[]
+  agent       Agent?  // a conversation has 1 agent (optional at first)
+}
+
+model Message {
+  id             String   @id @default(cuid())
+  conversationId String
+  role           Role
+  content        String
+  createdAt      DateTime @default(now())
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+}
+
+enum Role {
+  user
+  assistant
+  system
+}
+
+// Agent is a run of an agent on a conversation
+model Agent {
+  id             String   @id @default(cuid())
+  conversationId String   @unique
+  status         Status
+  startedAt      DateTime @default(now())
+  completedAt    DateTime?
+  error          String?
+  responses      Json?
+
+  conversation   Conversation @relation(fields: [conversationId], references: [id], onDelete: Cascade)
+}
+
+enum Status {
+  pending
+  running
+  completed
+  failed
+}

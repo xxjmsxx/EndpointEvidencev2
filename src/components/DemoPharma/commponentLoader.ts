@@ -1,0 +1,46 @@
+// componentLoader.ts
+import dynamic from 'next/dynamic';
+import type { ChecklistProps } from '@/components/DemoPharma/Demo/DesignStudyFramework/todo';
+
+export const components = {
+  'lung-cancer': {
+    Todo: dynamic<ChecklistProps>(() => import('@/components/DemoPharma/Demo/DesignStudyFramework/todo')),
+    StudyProtocol: dynamic(() => import('@/components/DemoPharma/Demo/DesignStudyFramework/studyProtocol')),
+    TreatmentDistributionChart: dynamic(() => import('@/components/DemoPharma/Demo/TreatmentGroup/TreatmentChart')),
+    AgeDistributionGraph: dynamic(() => import('@/components/DemoPharma/Demo/TreatmentGroup/AgeDistributionGraph')),
+    GenderDistributionChart: dynamic(() => import('@/components/DemoPharma/Demo/TreatmentGroup/Gender')),
+    ComorbidityCount: dynamic(() => import('@/components/DemoPharma/Demo/TreatmentGroup/ComorbilityCount')),
+    ComorbidityDistribution: dynamic(() => import('@/components/DemoPharma/Demo/TreatmentGroup/ComorbilityDistribution')),
+    CohortSizeChart: dynamic(() => import('@/components/DemoPharma/Demo/PropensityScore/CohortSizeChart')),
+    BalanceImprovementChart: dynamic(() => import('@/components/DemoPharma/Demo/PropensityScore/BalanceImprovementChart')),
+    KMChart: dynamic(() => import('@/components/DemoPharma/Demo/OutcomeAnalysis/KMChart')),
+    PFSChart: dynamic(() => import('@/components/DemoPharma/Demo/OutcomeAnalysis/PFSChart')),
+    ForestPlot: dynamic(() => import('@/components/DemoPharma/Demo/SubgroupAnalysis/ForestPlot')),
+    AdverseEvents: dynamic(() => import('@/components/DemoPharma/Demo/SafetyProfileComparison/AdverseEvents')),
+    CohortGeographyInitial: dynamic(() => import('@/components/DemoPharma/Demo/CohortRetrieval/CohortGeographyInitial')),
+    CohortGeographyFinal: dynamic(() => import('@/components/DemoPharma/Demo/CohortRetrieval/CohortGeographyFinal')),
+    PatientCharacteristicsTable: dynamic(() => import('@/components/DemoPharma/Demo/PropensityScore/CharacteristicsTable')),
+    PropensityScoreDistribution: dynamic(() => import('@/components/DemoPharma/Demo/PropensityScore/PropensityScoreDistribution')),
+    FakeReport: dynamic(() => import('@/components/DemoPharma/Demo/Report/FakeReport')),
+  },
+  'colorectal-cancer': {
+    Todo: dynamic<ChecklistProps>(() => import('@/components/DemoPharma/Demo - Amgen/DesignStudyFramework/todo')),
+    StudyProtocol: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/DesignStudyFramework/studyProtocol')),
+    TreatmentDistributionChart: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/TreatmentGroup/TreatmentChart')),
+    AgeDistributionGraph: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/TreatmentGroup/AgeDistributionGraph')),
+    GenderDistributionChart: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/TreatmentGroup/Gender')),
+    ComorbidityCount: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/TreatmentGroup/ComorbilityCount')),
+    ComorbidityDistribution: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/TreatmentGroup/ComorbilityDistribution')),
+    CohortSizeChart: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/PropensityScore/CohortSizeChart')),
+    BalanceImprovementChart: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/PropensityScore/BalanceImprovementChart')),
+    KMChart: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/OutcomeAnalysis/KMChart')),
+    PFSChart: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/OutcomeAnalysis/PFSChart')),
+    ForestPlot: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/SubgroupAnalysis/ForestPlot')),
+    AdverseEvents: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/SafetyProfileComparison/AdverseEvents')),
+    CohortGeographyInitial: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/CohortRetrieval/CohortGeographyInitial')),
+    CohortGeographyFinal: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/CohortRetrieval/CohortGeographyFinal')),
+    PatientCharacteristicsTable: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/PropensityScore/CharacteristicsTable')),
+    PropensityScoreDistribution: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/PropensityScore/PropensityScoreDistribution')),
+    FakeReport: dynamic(() => import('@/components/DemoPharma/Demo - Amgen/Report/FakeReport')),
+  },
+};
